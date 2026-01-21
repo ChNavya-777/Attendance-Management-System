@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css"> <!-- Separate CSS for maintainability -->
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduAdmin</h2>
+                    <span>Institutional Panel</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-users"></i>
+                    Student Directory
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-chart-pie-slice"></i>
+                    Attendance Reports
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="nav-group-label">SYSTEM</div>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </div>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=0D9488&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Alex Morgan</div>
+                    <div class="role">Super Admin</div>
+                </div>
+                <button class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search students, IDs or classes...">
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn">
+                        <i class="ph-fill ph-bell"></i>
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="ph-bold ph-download-simple"></i> Export CSV
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <h1>Student Management</h1>
+                        <p>Central registry for managing 1,240 enrolled students across 12 grades.</p>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i class="ph-bold ph-user-plus"></i> Add New Student
+                    </button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue-100 text-blue-600">
+                            <i class="ph-fill ph-users-three"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">TOTAL STUDENTS</span>
+                            <div class="stat-value">1,248</div>
+                        </div>
+                        <div class="stat-trend trend-up">
+                            <i class="ph-bold ph-trend-up"></i> 2.4%
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon bg-teal-100 text-teal-600">
+                                <i class="ph-fill ph-user-check"></i>
+                            </div>
+                            <span class="badge">Today</span>
+                        </div>
+                        <div class="stat-info mt-4">
+                            <span class="stat-label">PRESENT TODAY</span>
+                            <div class="stat-value-group">
+                                <div class="stat-value">1,185</div>
+                                <div class="stat-percentage text-teal-600">95.0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon bg-red-100 text-red-600">
+                                <i class="ph-fill ph-user-minus"></i>
+                            </div>
+                            <span class="badge badge-red">Alert</span>
+                        </div>
+                        <div class="stat-info mt-4">
+                            <span class="stat-label">ABSENT TODAY</span>
+                            <div class="stat-value-group">
+                                <div class="stat-value">63</div>
+                                <div class="stat-percentage text-red-600">5.0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Attendance Analytics</h3>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active">Weekly</button>
+                            <button class="toggle-btn">Monthly</button>
+                        </div>
+                    </div>
+                    <div class="analytics-content">
+                        <div class="analytics-chart-placeholder">
+                            <!-- Simple HTML/CSS Bar/Progress representation -->
+                            <div class="threshold-info">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Daily Attendance Threshold</span>
+                                    <span class="font-bold text-teal-600">95%</span>
+                                </div>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar bg-teal-600" style="width: 95%"></div>
+                                </div>
+                                <div class="flex justify-between mt-2 text-xs text-muted">
+                                    <span>MINIMUM GOAL: 90%</span>
+                                    <span>TARGET: 98%</span>
+                                </div>
+                            </div>
+
+                            <div class="chart-donut">
+                                <div class="donut-circle">
+                                    <div class="donut-text">
+                                        <span class="donut-value">82%</span>
+                                    </div>
+                                </div>
+                                <ul class="chart-legend">
+                                    <li><span class="dot bg-teal-600"></span> On-time Arrival</li>
+                                    <li><span class="dot bg-yellow-400"></span> Excused Absence</li>
+                                    <li><span class="dot bg-red-500"></span> Unexcused Absence</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Enrollments Table -->
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Recent Enrollments</h3>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-sm">
+                                All Grades <i class="ph-bold ph-caret-down"></i>
+                            </button>
+                            <button class="btn btn-icon-sm">
+                                <i class="ph-bold ph-funnel"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>STUDENT</th>
+                                    <th>ID NUMBER</th>
+                                    <th>GRADE LEVEL</th>
+                                    <th>STATUS</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random"
+                                                alt="Sarah">
+                                            <div>
+                                                <div class="font-medium">Sarah Jenkins</div>
+                                                <div class="text-xs text-muted">sarah.j@school.edu</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="font-mono">STU-8829-01</td>
+                                    <td><span class="badge-gray">Grade 12-A</span></td>
+                                    <td><span class="status-dot online"></span> <span
+                                            class="text-teal-600 font-medium">Present</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-sm"><i
+                                                    class="ph-fill ph-pencil-simple"></i></button>
+                                            <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Marcus+Holloway&background=random"
+                                                alt="Marcus">
+                                            <div>
+                                                <div class="font-medium">Marcus Holloway</div>
+                                                <div class="text-xs text-muted">m.holloway@school.edu</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="font-mono">STU-9120-42</td>
+                                    <td><span class="badge-gray">Grade 11-C</span></td>
+                                    <td><span class="status-dot offline"></span> <span
+                                            class="text-red-500 font-medium">Absent</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-sm"><i
+                                                    class="ph-fill ph-pencil-simple"></i></button>
+                                            <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-cell">
+                                            <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=random"
+                                                alt="Elena">
+                                            <div>
+                                                <div class="font-medium">Elena Rodriguez</div>
+                                                <div class="text-xs text-muted">elena.r@school.edu</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="font-mono">STU-7731-09</td>
+                                    <td><span class="badge-gray">Grade 12-B</span></td>
+                                    <td><span class="status-dot online"></span> <span
+                                            class="text-teal-600 font-medium">Present</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn-sm"><i
+                                                    class="ph-fill ph-pencil-simple"></i></button>
+                                            <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <span class="text-muted text-sm">Showing 3 of 1,248 students</span>
+                        <div class="pagination">
+                            <button class="page-btn"><i class="ph-bold ph-caret-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn"><i class="ph-bold ph-caret-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="landing-container">
+        <!-- Header / Logo -->
+        <header class="landing-header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>AttendancePro</h1>
+                    <span class="brand-subtitle">INSTITUTIONAL ACCESS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="landing-main">
+            <div class="welcome-text">
+                <h2>Welcome back.</h2>
+                <p>Please select your workspace to continue to the dashboard.</p>
+            </div>
+
+            <div class="cards-container">
+                <!-- Teacher Card -->
+                <div class="login-card">
+                    <div class="card-icon bg-blue-100">
+                        <i class="ph-duotone ph-book-open-text text-blue-600"></i>
+                    </div>
+                    <h3>Login as Teacher</h3>
+                    <p>Manage your classes, track real-time attendance, and monitor individual student performance
+                        metrics.</p>
+                    <a href="teacher-login.html" class="btn btn-primary">
+                        Enter Teacher Dashboard <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Admin Card -->
+                <div class="login-card">
+                    <div class="card-icon bg-teal-100">
+                        <i class="ph-duotone ph-shield-check text-teal-600"></i>
+                    </div>
+                    <h3>Login as Admin</h3>
+                    <p>Configure institutional settings, manage user accounts, and generate comprehensive system-wide
+                        analytics.</p>
+                    <a href="admin-login.html" class="btn btn-secondary">
+                        Enter Admin Portal <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="landing-footer">
+                <a href="#">Need help?</a>
+                <span class="dot">•</span>
+                <a href="#">User Guide</a>
+                <div class="version-info">
+                    VERSION 2.4.0 • ENTERPRISE EDITION
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

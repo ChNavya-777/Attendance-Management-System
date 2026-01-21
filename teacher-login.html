@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Teacher Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="landing-container">
+        <!-- Header -->
+        <header class="landing-header">
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>AttendancePro</h1>
+                    <span class="brand-subtitle">INSTITUTIONAL ACCESS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Login Form Content -->
+        <main class="landing-main">
+            <div class="login-card form-card">
+                <div class="card-header-center">
+                    <div class="card-icon bg-blue-100 text-blue-600">
+                        <i class="ph-duotone ph-book-open-text"></i>
+                    </div>
+                    <h3>Teacher Sign In</h3>
+                    <p>Enter your credentials to access the class management portal.</p>
+                </div>
+
+                <form class="login-form" onsubmit="event.preventDefault(); window.location.href='teacher.html';">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-envelope"></i>
+                            <input type="email" id="email" placeholder="sarah.jenkins@school.edu"
+                                value="sarah.jenkins@school.edu" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-lock"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Sign In <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="card-footer">
+                    <a href="index.html" class="back-link">
+                        <i class="ph-bold ph-arrow-left"></i> Back to Workspace Selection
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <div class="landing-footer">
+            <div class="version-info">
+                SECURE LOGIN • 256-BIT ENCRYPTION
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

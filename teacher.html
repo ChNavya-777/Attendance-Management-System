@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Teacher Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm bg-teal-600">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduPortal</h2>
+                    <span>Teacher Dashboard</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ph-fill ph-calendar-check"></i>
+                    Attendance
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-book-bookmark"></i>
+                    Classes
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-student"></i>
+                    Students
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Sarah Jenkins</div>
+                    <div class="role">Senior Teacher</div>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content teacher-layout">
+            <div class="attendance-section">
+                <div class="section-header">
+                    <span class="eyebrow">ATTENDANCE ENTRY</span>
+                    <h1>Grade 10 - Mathematics</h1>
+                    <div class="breadcrumbs">Section A • Room 302 • Morning Session</div>
+                </div>
+
+                <div class="controls-bar">
+                    <div class="search-bar">
+                        <i class="ph-bold ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search students by name or roll number...">
+                    </div>
+                    <button class="btn btn-outline-primary">
+                        <i class="ph-bold ph-check-circle"></i> Mark All Present
+                    </button>
+                </div>
+
+                <div class="attendance-list-container">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>ROLL NO.</th>
+                                <th>STUDENT NAME</th>
+                                <th class="text-right">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-muted">#101</td>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="avatar-sm text-avatar bg-blue-100 text-blue-600">AM</div>
+                                        <span class="font-medium">Alice Miller</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-toggle">
+                                        <button class="toggle-option active present">
+                                            <i class="ph-fill ph-check-circle"></i> Present
+                                        </button>
+                                        <button class="toggle-option">
+                                            <i class="ph-fill ph-x-circle"></i> Absent
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">#102</td>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="avatar-sm text-avatar bg-purple-100 text-purple-600">BJ</div>
+                                        <span class="font-medium">Benjamin Johnson</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-toggle">
+                                        <button class="toggle-option">
+                                            <i class="ph-fill ph-check-circle"></i> Present
+                                        </button>
+                                        <button class="toggle-option">
+                                            <i class="ph-fill ph-x-circle"></i> Absent
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">#103</td>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="avatar-sm text-avatar bg-teal-100 text-teal-600">CH</div>
+                                        <span class="font-medium">Catherine Hill</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="pending-text">Pending selection...</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">#104</td>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="avatar-sm text-avatar bg-orange-100 text-orange-600">DW</div>
+                                        <span class="font-medium">Daniel White</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="status-toggle">
+                                        <button class="toggle-option active present">
+                                            <i class="ph-fill ph-check-circle"></i> Present
+                                        </button>
+                                        <button class="toggle-option">
+                                            <i class="ph-fill ph-x-circle"></i> Absent
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">#105</td>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="avatar-sm text-avatar bg-pink-100 text-pink-600">ES</div>
+                                        <span class="font-medium">Emma Smith</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="pending-text">Pending selection...</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="list-footer">
+                        Showing 5 of 30 Students
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <aside class="right-sidebar">
+                <!-- Date Picker Widget -->
+                <div class="widget-card">
+                    <div class="date-header">
+                        <i class="ph-bold ph-calendar-blank"></i>
+                        <span>October 24, 2023</span>
+                        <div class="arrows">
+                            <button><i class="ph-bold ph-caret-left"></i></button>
+                            <button><i class="ph-bold ph-caret-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entry Summary -->
+                <div class="widget-card">
+                    <h3>Entry Summary</h3>
+
+                    <div class="completion-stat">
+                        <span class="label">COMPLETION</span>
+                        <div class="value-large">24<span class="total">/30</span></div>
+                        <span class="percentage">80%</span>
+                    </div>
+
+                    <div class="progress-bar-container">
+                        <div class="progress-bar bg-teal-600" style="width: 80%"></div>
+                    </div>
+
+                    <div class="info-tip">
+                        <i class="ph-fill ph-info"></i>
+                        6 students remaining to be marked
+                    </div>
+
+                    <div class="count-stats">
+                        <div class="count-item">
+                            <span class="label">PRESENT</span>
+                            <span class="value text-teal-600">22</span>
+                        </div>
+                        <div class="count-item border-l">
+                            <span class="label">ABSENT</span>
+                            <span class="value text-red-500">2</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary submit-btn">
+                        <i class="ph-fill ph-paper-plane-right"></i> Submit Attendance
+                    </button>
+
+                    <div class="helper-text">
+                        MARK ALL STUDENTS TO ENABLE SUBMISSION
+                    </div>
+                </div>
+
+                <!-- Calendar Widget -->
+                <div class="widget-card">
+                    <div class="calendar-header">
+                        <h4>October 2023</h4>
+                        <div class="arrows">
+                            <button><i class="ph-bold ph-caret-left"></i></button>
+                            <button><i class="ph-bold ph-caret-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="day-label">S</div>
+                        <div class="day-label">M</div>
+                        <div class="day-label">T</div>
+                        <div class="day-label">W</div>
+                        <div class="day-label">T</div>
+                        <div class="day-label">F</div>
+                        <div class="day-label">S</div>
+
+                        <!-- Placeholder days -->
+                        <div class="day text-muted">24</div>
+                        <div class="day">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+                        <div class="day">4</div>
+                        <div class="day active">24</div>
+                        <div class="day">25</div>
+                    </div>
+                </div>
+
+            </aside>
+        </main>
+    </div>
+</body>
+
+</html>
