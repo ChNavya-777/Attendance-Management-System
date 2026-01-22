@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - System Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduAdmin</h2>
+                    <span>Institutional Panel</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="admin.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="classes.html" class="nav-item">
+                    <i class="ph-fill ph-chalkboard-teacher"></i>
+                    Classes
+                </a>
+                <a href="admin-schedules.html" class="nav-item">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-users"></i>
+                    Student Directory
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-chart-pie-slice"></i>
+                    Attendance Reports
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="nav-group-label">SYSTEM</div>
+                <a href="settings.html" class="nav-item active">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </div>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=0D9488&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Alex Morgan</div>
+                    <div class="role">Super Admin</div>
+                </div>
+                <button class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar (Simplified for Settings) -->
+            <header class="top-bar justify-between">
+                <div class="header-title">
+                    <h1>System Settings</h1>
+                </div>
+                <div class="top-actions">
+                    <span class="text-sm text-muted mr-2">Profile</span>
+                    <span class="text-sm text-muted mr-2">Help Center</span>
+                    <button class="icon-btn">
+                        <i class="ph-fill ph-bell"></i>
+                    </button>
+                    <button class="btn btn-primary">
+                        Save Changes
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="breadcrumbs-nav">
+                    Dashboard <i class="ph-bold ph-caret-right"></i> <span class="text-main">Settings</span>
+                </div>
+
+                <div class="settings-grid">
+                    <!-- Institution Settings -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-blue-100 text-blue-600">
+                                <i class="ph-fill ph-buildings"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Institution Settings</h3>
+                                <p>Configure your primary organization identity.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label>Institution Name</label>
+                                <input type="text" value="Oakwood International Academy">
+                            </div>
+                            <div class="form-group">
+                                <label>Academic Year</label>
+                                <select>
+                                    <option value="2024-2025" selected>2024-2025</option>
+                                    <option value="2023-2024">2023-2024</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Working Days</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-pill"><input type="checkbox" checked> Mon</label>
+                                    <label class="checkbox-pill"><input type="checkbox" checked> Tue</label>
+                                    <label class="checkbox-pill"><input type="checkbox" checked> Wed</label>
+                                    <label class="checkbox-pill"><input type="checkbox" checked> Thu</label>
+                                    <label class="checkbox-pill"><input type="checkbox" checked> Fri</label>
+                                    <label class="checkbox-pill"><input type="checkbox"> Sat</label>
+                                    <label class="checkbox-pill"><input type="checkbox"> Sun</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Rules -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-teal-100 text-teal-600">
+                                <i class="ph-fill ph-sliders-horizontal"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Attendance Rules</h3>
+                                <p>Define logic for marking and validation.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label>Default Session Status</label>
+                                <select>
+                                    <option value="Present" selected>Present</option>
+                                    <option value="Absent">Absent</option>
+                                    <option value="Empty">Empty</option>
+                                </select>
+                                <span class="help-text">Students are assigned this status when a session starts.</span>
+                            </div>
+                            <div class="toggle-group-row">
+                                <div class="toggle-info">
+                                    <label>Quick Mark Toggle</label>
+                                    <p>Allow 'Mark All Present' shortcut button.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-group-row">
+                                <div class="toggle-info">
+                                    <label>Allow Retroactive Editing</label>
+                                    <p>Teachers can edit attendance for past 48 hours.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Class Preferences -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-purple-100 text-purple-600">
+                                <i class="ph-fill ph-clock"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Class Preferences</h3>
+                                <p>Set time slots and workload limits.</p>
+                            </div>
+                        </div>
+                        <div class="form-section row-gapped">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Max Classes / Teacher</label>
+                                    <div class="input-suffix">
+                                        <input type="number" value="6">
+                                        <span>Daily</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Session Duration</label>
+                                    <div class="input-suffix">
+                                        <input type="number" value="45">
+                                        <span>Mins</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Late Grace Period</label>
+                                <div class="input-suffix">
+                                    <input type="number" value="10">
+                                    <span>Minutes after start</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-orange-100 text-orange-600">
+                                <i class="ph-fill ph-database"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Data Management</h3>
+                                <p>Backup tools and maintenance.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="data-row">
+                                <div class="data-info">
+                                    <label>Export System Data</label>
+                                    <p>Download all students and logs in JSON format.</p>
+                                </div>
+                                <button class="btn btn-outline-sm">
+                                    <i class="ph-bold ph-download-simple"></i> Export JSON
+                                </button>
+                            </div>
+
+                            <div class="danger-zone">
+                                <h4>DANGER ZONE</h4>
+                                <div class="danger-row">
+                                    <div class="danger-info">
+                                        <label>Reset System</label>
+                                        <p>Wipe all attendance records and reset current academic year. This cannot be
+                                            undone.</p>
+                                    </div>
+                                    <button class="btn btn-danger">RESET</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

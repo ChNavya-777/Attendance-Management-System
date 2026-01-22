@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Account Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teacher.css">
+    <!-- Reusing settings grid styles -->
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm bg-teal-600">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduPortal</h2>
+                    <span>Teacher Dashboard</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="teacher.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="teacher.html" class="nav-item">
+                    <i class="ph-fill ph-calendar-check"></i>
+                    Attendance
+                </a>
+                <a href="teacher-classes.html" class="nav-item">
+                    <i class="ph-fill ph-book-bookmark"></i>
+                    Classes
+                </a>
+                <a href="teacher-schedules.html" class="nav-item">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-student"></i>
+                    Students
+                </a>
+                <a href="teacher-settings.html" class="nav-item active">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Sarah Jenkins</div>
+                    <div class="role">Senior Teacher</div>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar justify-between">
+                <div class="header-title">
+                    <h1>Account Settings</h1>
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-primary">
+                        Save Changes
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="settings-grid">
+                    <!-- Profile Settings -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-blue-100 text-blue-600">
+                                <i class="ph-fill ph-user"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Profile Information</h3>
+                                <p>Update your personal details and contact info.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="profile-header-edit">
+                                <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="User"
+                                    class="profile-lg">
+                                <button class="btn btn-outline-sm">Change Photo</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Sarah Jenkins">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" value="sarah.jenkins@schooledu.com" readonly
+                                    style="background-color: #f1f5f9;">
+                            </div>
+                            <div class="form-group">
+                                <label>Subject Specialization</label>
+                                <input type="text" value="Mathematics, Physics">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-yellow-100 text-yellow-600">
+                                <i class="ph-fill ph-bell-ringing"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Notifications</h3>
+                                <p>Manage how we communicate with you.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="toggle-group-row">
+                                <div class="toggle-info">
+                                    <label>Daily Schedule Reminder</label>
+                                    <p>Receive an email summary of your classes at 8 AM.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-group-row">
+                                <div class="toggle-info">
+                                    <label>Attendance Submission Alert</label>
+                                    <p>Get notified if you forget to mark attendance by 4 PM.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="settings-card">
+                        <div class="card-header-icon">
+                            <div class="icon-box bg-red-100 text-red-600">
+                                <i class="ph-fill ph-lock-key"></i>
+                            </div>
+                            <div class="header-text">
+                                <h3>Security</h3>
+                                <p>Update password and secure your account.</p>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" placeholder="Confirm new password">
+                            </div>
+                            <button class="btn btn-outline-primary" style="width: fit-content;">Update Password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
