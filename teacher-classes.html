@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - My Classes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teacher.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm bg-teal-600">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduPortal</h2>
+                    <span>Teacher Dashboard</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="teacher.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-calendar-check"></i>
+                    Attendance
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ph-fill ph-book-bookmark"></i>
+                    Classes
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-student"></i>
+                    Students
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Sarah Jenkins</div>
+                    <div class="role">Senior Teacher</div>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content teacher-layout">
+            <div class="attendance-section">
+                <div class="section-header">
+                    <span class="eyebrow">OVERVIEW</span>
+                    <h1>My Scheduled Classes</h1>
+                    <div class="breadcrumbs">Thursday, October 24, 2023</div>
+                    <div class="header-actions">
+                        <button class="btn-icon-sm"><i class="ph-bold ph-funnel"></i></button>
+                        <button class="btn-icon-sm"><i class="ph-bold ph-arrow-clockwise"></i></button>
+                    </div>
+                </div>
+
+                <!-- Classes Grid -->
+                <div class="classes-grid">
+                    <!-- Ongoing Class -->
+                    <div class="class-card-teacher">
+                        <div class="card-header-row">
+                            <span class="card-badge ongoing">Ongoing</span>
+                            <span class="card-time">08:30 AM</span>
+                        </div>
+                        <h3>Mathematics</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="ph-fill ph-door"></i> Grade 10 - Section A
+                            </div>
+                            <div class="detail-item">
+                                <i class="ph-fill ph-users"></i> 30 Students enrolled
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-full bg-teal-100 text-teal-600 hover-teal">TAKE
+                                ATTENDANCE</button>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Class -->
+                    <div class="class-card-teacher">
+                        <div class="card-header-row">
+                            <span class="card-badge upcoming">Upcoming</span>
+                            <span class="card-time">10:15 AM</span>
+                        </div>
+                        <h3>Physics Lab</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="ph-fill ph-door"></i> Grade 11 - Section B
+                            </div>
+                            <div class="detail-item">
+                                <i class="ph-fill ph-users"></i> 24 Students enrolled
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-full bg-teal-100 text-teal-600 hover-teal">TAKE
+                                ATTENDANCE</button>
+                        </div>
+                    </div>
+
+                    <!-- Completed Class -->
+                    <div class="class-card-teacher">
+                        <div class="card-header-row">
+                            <span class="card-badge completed">Completed</span>
+                            <span class="card-time">Yesterday</span>
+                        </div>
+                        <h3>Calculus II</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="ph-fill ph-door"></i> Grade 12 - Section C
+                            </div>
+                            <div class="detail-item">
+                                <i class="ph-fill ph-users"></i> 18 Students enrolled
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-secondary btn-full">VIEW REPORT</button>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Class 2 -->
+                    <div class="class-card-teacher">
+                        <div class="card-header-row">
+                            <span class="card-badge upcoming">Upcoming</span>
+                            <span class="card-time">02:00 PM</span>
+                        </div>
+                        <h3>Trigonometry</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="ph-fill ph-door"></i> Grade 10 - Section B
+                            </div>
+                            <div class="detail-item">
+                                <i class="ph-fill ph-users"></i> 32 Students enrolled
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-full bg-teal-100 text-teal-600 hover-teal">TAKE
+                                ATTENDANCE</button>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Class 3 -->
+                    <div class="class-card-teacher">
+                        <div class="card-header-row">
+                            <span class="card-badge upcoming-light">Upcoming</span>
+                            <span class="card-time">Friday</span>
+                        </div>
+                        <h3>Advanced...</h3> <!-- Truncated text as per design vibe -->
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <i class="ph-fill ph-door"></i> Grade 11 - Section A
+                            </div>
+                            <div class="detail-item">
+                                <i class="ph-fill ph-users"></i> 28 Students enrolled
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-full bg-teal-100 text-teal-600 hover-teal">TAKE
+                                ATTENDANCE</button>
+                        </div>
+                    </div>
+
+                    <!-- Schedule New Class -->
+                    <div class="class-card-teacher dashed-card">
+                        <div class="dashed-content">
+                            <div class="plus-icon-circle">
+                                <i class="ph-bold ph-plus"></i>
+                            </div>
+                            <span>SCHEDULE CLASS</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- We can keep a simplified Right Sidebar or remove it for this view. 
+                 The image didn't clearly show a right sidebar, but consistent layout is good. 
+                 I'll remove it for this specific page to match the expansive grid view in the image, 
+                 or keep it empty/minimal. -->
+        </main>
+    </div>
+</body>
+
+</html>

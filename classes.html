@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Classroom Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduAdmin</h2>
+                    <span>Institutional Panel</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="admin.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ph-fill ph-chalkboard-teacher"></i>
+                    Classes
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-users"></i>
+                    Student Directory
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-chart-pie-slice"></i>
+                    Attendance Reports
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="nav-group-label">SYSTEM</div>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </div>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=0D9488&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Alex Morgan</div>
+                    <div class="role">Super Admin</div>
+                </div>
+                <button class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search classes by grade, section, or subject...">
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn">
+                        <i class="ph-fill ph-bell"></i>
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="ph-bold ph-plus"></i> Add New Class
+                    </button>
+                </div>
+            </header>
+
+            <!-- Classes Content -->
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <h1>Classroom Management</h1>
+                        <p>Manage and organize school class structures</p>
+                    </div>
+                    <div class="filter-actions">
+                        <div class="search-bar custom-search">
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                            <input type="text" placeholder="Search classes by grade, section, or subject...">
+                        </div>
+                        <button class="btn btn-outline-sm filter-btn">
+                            <i class="ph-bold ph-funnel"></i> Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Classes Grid -->
+                <div class="class-grid">
+                    <!-- Class Card 1 -->
+                    <div class="class-card">
+                        <div class="card-image-bg bg-teal-100">
+                            <!-- Placeholder image or icon could go here -->
+                            <img src="https://images.unsplash.com/photo-1550592704-6c76fc985830?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Class Image" class="class-img">
+                            <div class="student-count-badge">42 Students</div>
+                        </div>
+                        <div class="class-info">
+                            <h3>Grade 10 - Section A</h3>
+                            <div class="class-meta">
+                                <i class="ph-fill ph-sigma"></i>
+                                <span>Advanced Mathematics</span>
+                            </div>
+                        </div>
+                        <div class="card-footer-actions">
+                            <div class="icon-actions">
+                                <button class="icon-btn-sm"><i class="ph-fill ph-pencil-simple"></i></button>
+                                <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                            </div>
+                            <button class="btn btn-sm-gray">View Details <i class="ph-bold ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Class Card 2 -->
+                    <div class="class-card">
+                        <div class="class-header-image">
+                            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Class Image" class="class-img">
+                            <div class="student-count-badge">38 Students</div>
+                        </div>
+                        <div class="class-info">
+                            <h3>Grade 11 - Section B</h3>
+                            <div class="class-meta">
+                                <i class="ph-fill ph-flask"></i>
+                                <span>Theoretical Physics</span>
+                            </div>
+                        </div>
+                        <div class="card-footer-actions">
+                            <div class="icon-actions">
+                                <button class="icon-btn-sm"><i class="ph-fill ph-pencil-simple"></i></button>
+                                <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                            </div>
+                            <button class="btn btn-sm-gray">View Details <i class="ph-bold ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Class Card 3 -->
+                    <div class="class-card">
+                        <div class="class-header-image">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Class Image" class="class-img">
+                            <div class="student-count-badge">35 Students</div>
+                        </div>
+                        <div class="class-info">
+                            <h3>Grade 9 - Section C</h3>
+                            <div class="class-meta">
+                                <i class="ph-fill ph-globe-hemisphere-west"></i>
+                                <span>World History</span>
+                            </div>
+                        </div>
+                        <div class="card-footer-actions">
+                            <div class="icon-actions">
+                                <button class="icon-btn-sm"><i class="ph-fill ph-pencil-simple"></i></button>
+                                <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                            </div>
+                            <button class="btn btn-sm-gray">View Details <i class="ph-bold ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Class Card 4 -->
+                    <div class="class-card">
+                        <div class="class-header-image">
+                            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
+                                alt="Class Image" class="class-img">
+                            <div class="student-count-badge">40 Students</div>
+                        </div>
+                        <div class="class-info">
+                            <h3>Grade 12 - Section A</h3>
+                            <div class="class-meta">
+                                <i class="ph-fill ph-book-open-text"></i>
+                                <span>English Literature</span>
+                            </div>
+                        </div>
+                        <div class="card-footer-actions">
+                            <div class="icon-actions">
+                                <button class="icon-btn-sm"><i class="ph-fill ph-pencil-simple"></i></button>
+                                <button class="icon-btn-sm"><i class="ph-fill ph-trash"></i></button>
+                            </div>
+                            <button class="btn btn-sm-gray">View Details <i class="ph-bold ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
