@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - My Schedules</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="teacher.css">
+    <!-- Reusing admin CSS for specific schedule components to keep it consistent -->
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        /* Override specific admin styles if they conflict, but mostly reusing card styles */
+        .main-content {
+            background-color: var(--bg-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm bg-teal-600">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduPortal</h2>
+                    <span>Teacher Dashboard</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="teacher.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="teacher.html" class="nav-item">
+                    <i class="ph-fill ph-calendar-check"></i>
+                    Attendance
+                </a>
+                <a href="teacher-classes.html" class="nav-item">
+                    <i class="ph-fill ph-book-bookmark"></i>
+                    Classes
+                </a>
+                <a href="teacher-schedules.html" class="nav-item active">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-student"></i>
+                    Students
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=random" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Sarah Jenkins</div>
+                    <div class="role">Senior Teacher</div>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper" style="max-width: 800px; margin: 0 auto;">
+                <div class="page-header">
+                    <div class="header-title">
+                        <h1>My Schedules</h1>
+                        <p>Weekly class schedule overview</p>
+                    </div>
+                </div>
+
+                <!-- Schedules Container -->
+                <div id="teacherSchedulesContainer">
+                    <!-- Populated by JS -->
+                    <div class="text-center p-4 text-muted">Loading your schedules...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="schedules.js"></script>
+</body>
+
+</html>

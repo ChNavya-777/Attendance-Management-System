@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Schedule Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduAdmin</h2>
+                    <span>Institutional Panel</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="admin.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="classes.html" class="nav-item">
+                    <i class="ph-fill ph-chalkboard-teacher"></i>
+                    Classes
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-users"></i>
+                    Student Directory
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-chart-pie-slice"></i>
+                    Attendance Reports
+                </a>
+                <a href="admin-schedules.html" class="nav-item active">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="nav-group-label">SYSTEM</div>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </div>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=0D9488&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Alex Morgan</div>
+                    <div class="role">Super Admin</div>
+                </div>
+                <button class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search schedules...">
+                </div>
+                <div class="top-actions">
+                    <button class="icon-btn">
+                        <i class="ph-fill ph-bell"></i>
+                    </button>
+                    <button id="addScheduleBtn" class="btn btn-primary">
+                        <i class="ph-bold ph-plus"></i> Add New Schedule
+                    </button>
+                </div>
+            </header>
+
+            <!-- Schedules Content -->
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <h1>Schedule Management</h1>
+                        <p>Manage class schedules, assign subjects and teachers</p>
+                    </div>
+                </div>
+
+                <!-- Schedules Table -->
+                <div class="section-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="schedulesTable">
+                            <thead>
+                                <tr>
+                                    <th>DAY</th>
+                                    <th>TIME SLOT</th>
+                                    <th>GRADE & SECTION</th>
+                                    <th>SUBJECT</th>
+                                    <th>TEACHER</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedulesTableBody">
+                                <!-- Populated by JS -->
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted" style="padding: 2rem;">Loading
+                                        schedules...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Add/Edit Schedule -->
+    <div id="scheduleModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Schedule</h3>
+                <button id="closeModalBtn" class="icon-btn-sm"><i class="ph-bold ph-x"></i></button>
+            </div>
+            <form id="scheduleForm" class="modal-form">
+                <input type="hidden" id="scheduleId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Grade Level</label>
+                        <select id="grade" required>
+                            <option value="">Select Grade</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Section</label>
+                        <select id="section" required>
+                            <option value="">Select Section</option>
+                            <option value="A">Section A</option>
+                            <option value="B">Section B</option>
+                            <option value="C">Section C</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Subject</label>
+                    <select id="subject" required>
+                        <option value="">Select Subject</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Biology">Biology</option>
+                        <option value="English">English Literature</option>
+                        <option value="History">World History</option>
+                        <option value="Computer Science">Computer Science</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Teacher</label>
+                    <select id="teacherName" required>
+                        <option value="">Assign Teacher</option>
+                        <option value="Sarah Jenkins">Sarah Jenkins</option>
+                        <option value="Michael Ross">Michael Ross</option>
+                        <option value="Emily Blunt">Emily Blunt</option>
+                        <option value="John Doe">John Doe</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Day of Week</label>
+                    <select id="day" required>
+                        <option value="">Select Day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Schedule</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="schedules.js"></script>
+</body>
+
+</html>
