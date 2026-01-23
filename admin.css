@@ -723,3 +723,178 @@
 .action-arrow {
     color: var(--text-muted);
 }
+
+/* --- Reports Page Specific Styles --- */
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stats-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.bg-blue-100 { background-color: #dbeafe; }
+.text-blue-600 { color: #2563eb; }
+.bg-purple-100 { background-color: #f3e8ff; }
+.text-purple-600 { color: #9333ea; }
+.bg-teal-100 { background-color: #ccfbf1; }
+.text-teal-600 { color: #0d9488; }
+.bg-red-100 { background-color: #fee2e2; }
+.text-red-600 { color: #dc2626; }
+.text-green-600 { color: #16a34a; }
+
+.stat-subtext {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Filter Section */
+.filters-section {
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-end; /* Align bottom to match inputs and button */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-group label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.date-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+}
+
+.date-input-wrapper input {
+    border: none;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text-main);
+    width: 130px;
+    padding: 0.25rem;
+}
+
+.date-input-wrapper input:focus {
+    outline: none;
+}
+
+.range-separator {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #f8fafc; /* Slight grey background for inputs as per design */
+    color: var(--text-main);
+}
+
+.filter-actions-btn {
+    padding-bottom: 2px; /* Slight alignment fix */
+}
+
+.btn-primary-icon {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary-icon:hover {
+    background-color: #0b7a6f;
+}
+
+/* Table Progress Bar specific */
+.attendance-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.attendance-progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    max-width: 100px;
+}
+
+.attendance-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.text-bold { font-weight: 600; }
+
+/* Responsive Grid 4->2->1 */
+@media (max-width: 1200px) {
+    .stats-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid-4 {
+        grid-template-columns: 1fr;
+    }
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .filter-actions-btn {
+        align-self: flex-end;
+    }
+}

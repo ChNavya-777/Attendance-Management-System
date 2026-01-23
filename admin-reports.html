@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttendancePro - Attendance Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon-sm">
+                    <i class="ph-fill ph-graduation-cap"></i>
+                </div>
+                <div class="brand-text-sm">
+                    <h2>EduAdmin</h2>
+                    <span>Institutional Panel</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="admin.html" class="nav-item">
+                    <i class="ph-fill ph-squares-four"></i>
+                    Dashboard
+                </a>
+                <a href="classes.html" class="nav-item">
+                    <i class="ph-fill ph-chalkboard-teacher"></i>
+                    Classes
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph-fill ph-users"></i>
+                    Student Directory
+                </a>
+                <a href="admin-reports.html" class="nav-item active">
+                    <i class="ph-fill ph-chart-pie-slice"></i>
+                    Attendance Reports
+                </a>
+                <a href="admin-schedules.html" class="nav-item">
+                    <i class="ph-fill ph-calendar-blank"></i>
+                    Schedules
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="nav-group-label">SYSTEM</div>
+                <a href="settings.html" class="nav-item">
+                    <i class="ph-fill ph-gear"></i>
+                    Settings
+                </a>
+            </div>
+
+            <div class="user-profile-mini">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=0D9488&color=fff" alt="User">
+                </div>
+                <div class="user-info">
+                    <div class="name">Alex Morgan</div>
+                    <div class="role">Super Admin</div>
+                </div>
+                <button class="logout-btn">
+                    <i class="ph-bold ph-sign-out"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar (Search & Actions) -->
+            <header class="top-bar">
+                <div class="search-bar" style="max-width: 400px;">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search reports...">
+                </div>
+                <div class="top-actions">
+                    <button class="btn btn-secondary-outline" id="exportCsvBtn">
+                        <i class="ph-bold ph-download-simple"></i> Export CSV
+                    </button>
+                    <button class="btn btn-secondary-outline" id="exportJsonBtn">
+                        <i class="ph-bold ph-code"></i> JSON
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <div class="header-title">
+                        <div class="breadcrumb">Admin <i class="ph-bold ph-caret-right"></i> Attendance Reports</div>
+                        <h1>Attendance Reports</h1>
+                    </div>
+                </div>
+
+                <!-- Stats Overview -->
+                <div class="stats-grid-4">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <span class="stat-label">Total Classes</span>
+                                <div class="stat-value">1,284</div>
+                            </div>
+                            <div class="stat-icon-box bg-blue-100 text-blue-600">
+                                <i class="ph-fill ph-notebook"></i>
+                            </div>
+                        </div>
+                        <div class="stat-trend text-green-600">
+                            <i class="ph-bold ph-trend-up"></i> +4.2% from last month
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <span class="stat-label">Total Students</span>
+                                <div class="stat-value">45,000</div>
+                            </div>
+                            <div class="stat-icon-box bg-purple-100 text-purple-600">
+                                <i class="ph-fill ph-users-three"></i>
+                            </div>
+                        </div>
+                        <div class="stat-subtext">Enrolled in 12 departments</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <span class="stat-label">Avg Attendance %</span>
+                                <div class="stat-value">88.5%</div>
+                            </div>
+                            <div class="stat-icon-box bg-teal-100 text-teal-600">
+                                <i class="ph-fill ph-chart-bar"></i>
+                            </div>
+                        </div>
+                        <div class="progress-bar-container mt-2">
+                            <div class="progress-bar bg-teal-600" style="width: 88.5%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div>
+                                <span class="stat-label">Total Absentees</span>
+                                <div class="stat-value">542</div>
+                            </div>
+                            <div class="stat-icon-box bg-red-100 text-red-600">
+                                <i class="ph-fill ph-user-minus"></i>
+                            </div>
+                        </div>
+                        <div class="stat-trend text-red-600">
+                            Urgent attention required
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters Section -->
+                <div class="section-card filters-section">
+                    <div class="filter-group">
+                        <label>DATE RANGE</label>
+                        <div class="date-range-inputs">
+                            <div class="date-input-wrapper">
+                                <input type="date" id="startDate">
+                            </div>
+                            <span class="range-separator">to</span>
+                            <div class="date-input-wrapper">
+                                <input type="date" id="endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>GRADE</label>
+                        <select id="gradeFilter">
+                            <option value="">All Grades</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>SUBJECT</label>
+                        <select id="subjectFilter">
+                            <option value="">All Subjects</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Physics">Physics</option>
+                            <option value="English">English</option>
+                            <option value="History">History</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>TEACHER</label>
+                        <select id="teacherFilter">
+                            <option value="">All Teachers</option>
+                            <option value="Mr. John Smith">Mr. John Smith</option>
+                            <option value="Dr. Sarah Miller">Dr. Sarah Miller</option>
+                            <option value="Ms. Elena Rose">Ms. Elena Rose</option>
+                        </select>
+                    </div>
+                    <div class="filter-actions-btn">
+                        <button class="btn btn-primary-icon">
+                            <i class="ph-fill ph-funnel"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Report Table -->
+                <div class="section-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="reportsTable">
+                            <thead>
+                                <tr>
+                                    <th>DATE</th>
+                                    <th>GRADE/SECTION</th>
+                                    <th>SUBJECT</th>
+                                    <th>TEACHER</th>
+                                    <th>PRESENT</th>
+                                    <th>ABSENT</th>
+                                    <th>ATTENDANCE %</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reportsTableBody">
+                                <!-- Populated by JS -->
+                                <tr>
+                                    <td colspan="8" class="text-center text-muted" style="padding: 2rem;">Loading
+                                        Data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <div class="showing-text">Showing <span id="startIdx">1</span>-<span id="endIdx">5</span> of
+                            <span id="totalRows">240</span> reports
+                        </div>
+                        <div class="pagination" id="pagination">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="reports.js"></script>
+    <script src="script.js?v=1.0"></script>
+</body>
+
+</html>

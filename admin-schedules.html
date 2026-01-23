@@ -40,7 +40,7 @@
                     <i class="ph-fill ph-users"></i>
                     Student Directory
                 </a>
-                <a href="#" class="nav-item">
+                <a href="admin-reports.html" class="nav-item">
                     <i class="ph-fill ph-chart-pie-slice"></i>
                     Attendance Reports
                 </a>
@@ -124,7 +124,44 @@
                     </div>
                 </div>
             </div>
-        </main>
+
+            <!-- School Fest Section -->
+            <div class="section-card" style="margin-top: 2rem;">
+                <div class="card-header"
+                    style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--text-dark);">School Fest & Special
+                            Events</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Upcoming events for the Annual School
+                            Festival</p>
+                    </div>
+                    <button class="btn btn-secondary-outline">
+                        <i class="ph-bold ph-calendar-plus"></i> Add Event
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table" id="eventsTable">
+                        <thead>
+                            <tr>
+                                <th>DAY</th>
+                                <th>TIME</th>
+                                <th>EVENT NAME</th>
+                                <th>LOCATION</th>
+                                <th>COORDINATOR</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody">
+                            <!-- Populated by JS -->
+                            <tr>
+                                <td colspan="5" class="text-center text-muted" style="padding: 2rem;">Loading events...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    </main>
     </div>
 
     <!-- Modal for Add/Edit Schedule -->
@@ -216,7 +253,68 @@
         </div>
     </div>
 
+    <!-- Modal for Add/Edit Event -->
+    <div id="eventModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="eventModalTitle">Add New Event</h3>
+                <button id="closeEventModalBtn" class="icon-btn-sm"><i class="ph-bold ph-x"></i></button>
+            </div>
+            <form id="eventForm" class="modal-form">
+                <input type="hidden" id="eventId">
+
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" id="eventName" required placeholder="e.g. Science Fair 2024">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date & Day</label>
+                        <select id="eventDay" required>
+                            <option value="">Select Day</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" id="eventStartTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <input type="time" id="eventEndTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="eventLocation" required placeholder="e.g. Main Auditorium">
+                </div>
+
+                <div class="form-group">
+                    <label>Coordinator</label>
+                    <input type="text" id="eventCoordinator" required placeholder="e.g. Mr. Smith">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="cancelEventBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="schedules.js"></script>
+    <script src="script.js?v=1.0"></script>
 </body>
 
 </html>
