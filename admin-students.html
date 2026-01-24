@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AttendancePro - Classroom Management</title>
+    <title>AttendancePro - Admin Student Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,11 +32,11 @@
                     <i class="ph-fill ph-squares-four"></i>
                     Dashboard
                 </a>
-                <a href="classes.html" class="nav-item active">
+                <a href="classes.html" class="nav-item">
                     <i class="ph-fill ph-chalkboard-teacher"></i>
                     Classes
                 </a>
-                <a href="#" class="nav-item">
+                <a href="admin-students.html" class="nav-item active">
                     <i class="ph-fill ph-users"></i>
                     Student Directory
                 </a>
@@ -74,92 +74,106 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Top Bar -->
             <header class="top-bar">
-                <div class="search-bar" style="display: flex;">
+                <div class="search-bar">
                     <i class="ph-bold ph-magnifying-glass"></i>
-                    <input type="text" id="topSearchInput" placeholder="Search classes...">
+                    <input type="text" id="searchInput" placeholder="Search students...">
                 </div>
                 <div class="top-actions">
-                    <button id="addClassBtnTop" class="btn btn-primary">
-                        <i class="ph-bold ph-plus"></i> Add New Class
+                    <button class="icon-btn">
+                        <i class="ph-fill ph-bell"></i>
+                    </button>
+                    <button id="addStudentBtn" class="btn btn-primary">
+                        <i class="ph-bold ph-plus"></i> Add New Student
                     </button>
                 </div>
             </header>
 
-            <!-- Classes Content -->
             <div class="content-wrapper">
                 <div class="page-header">
                     <div class="header-title">
-                        <h1>Classroom Management</h1>
-                        <p>Manage andorganize school class structures</p>
-                    </div>
-                    <div class="filter-actions">
-                        <!-- Redundant search if top bar is active, but keeping for design consistency if needed -->
+                        <h1>Student Directory</h1>
+                        <p>Manage all students enrolled in the system</p>
                     </div>
                 </div>
 
-                <!-- Classes Grid -->
-                <div class="class-grid" id="classGrid">
-                    <!-- Populated by JS -->
-                    <div class="text-muted" style="grid-column: 1/-1; text-align: center; padding: 2rem;">Loading
-                        classes...</div>
+                <div class="section-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FULL NAME</th>
+                                    <th>GRADE</th>
+                                    <th>EMAIL</th>
+                                    <th>STATUS</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentsTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Modal for Add/Edit Class -->
-    <div id="classModal" class="modal-overlay hidden">
+    <!-- Modal for Add/Edit Student -->
+    <div id="studentModal" class="modal-overlay hidden">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 id="modalTitle">Add New Class</h3>
+                <h3 id="modalTitle">Add New Student</h3>
                 <button id="closeModalBtn" class="icon-btn-sm"><i class="ph-bold ph-x"></i></button>
             </div>
-            <form id="classForm" class="modal-form">
-                <input type="hidden" id="classId">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Grade Level</label>
-                        <select id="classGrade" required>
-                            <option value="">Select Grade</option>
-                            <option value="9">Grade 9</option>
-                            <option value="10">Grade 10</option>
-                            <option value="11">Grade 11</option>
-                            <option value="12">Grade 12</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Section</label>
-                        <select id="classSection" required>
-                            <option value="">Select Section</option>
-                            <option value="A">Section A</option>
-                            <option value="B">Section B</option>
-                            <option value="C">Section C</option>
-                        </select>
-                    </div>
-                </div>
+            <form id="studentForm" class="modal-form">
+                <input type="hidden" id="editStudentId"> <!-- For editing -->
 
                 <div class="form-group">
-                    <label>Subject / Class Name</label>
-                    <input type="text" id="className" required placeholder="e.g. Mathematics">
+                    <label>Student ID</label>
+                    <input type="text" id="studentId" required placeholder="e.g. STU-2023-001">
                 </div>
-
                 <div class="form-group">
-                    <label>Class Teacher</label>
-                    <input type="text" id="classTeacher" required placeholder="e.g. Mr. John Smith">
+                    <label>Full Name</label>
+                    <input type="text" id="studentName" required placeholder="e.g. John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Grade/Class</label>
+                    <select id="studentGrade" required>
+                        <option value="">Select Grade</option>
+                        <option value="10-A">10-A</option>
+                        <option value="10-B">10-B</option>
+                        <option value="11-A">11-A</option>
+                        <option value="11-C">11-C</option>
+                        <option value="12-A">12-A</option>
+                        <option value="12-B">12-B</option>
+                        <option value="12-C">12-C</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="studentEmail" required placeholder="e.g. john@school.edu">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="studentStatus">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Save Class</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn">Add Student</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- Re-use admin logout script -->
     <script src="script.js?v=1.0"></script>
-    <script src="classes.js?v=1.0"></script>
+    <script src="admin-students.js"></script>
 </body>
 
 </html>

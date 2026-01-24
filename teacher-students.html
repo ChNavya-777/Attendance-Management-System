@@ -4,21 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AttendancePro - My Schedules</title>
+    <title>AttendancePro - Student Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="teacher.css">
-    <!-- Reusing admin CSS for specific schedule components to keep it consistent -->
+    <!-- Reuse admin styles for table/modal if needed or ensure teacher.css covers it -->
     <link rel="stylesheet" href="admin.css">
-    <style>
-        /* Override specific admin styles if they conflict, but mostly reusing card styles */
-        .main-content {
-            background-color: var(--bg-color);
-        }
-    </style>
 </head>
 
 <body>
@@ -48,7 +42,7 @@
                     <i class="ph-fill ph-book-bookmark"></i>
                     Classes
                 </a>
-                <a href="teacher-schedules.html" class="nav-item active">
+                <a href="teacher-schedules.html" class="nav-item">
                     <i class="ph-fill ph-calendar-blank"></i>
                     Schedules
                 </a>
@@ -56,7 +50,7 @@
                     <i class="ph-fill ph-briefcase"></i>
                     Teachers
                 </a>
-                <a href="teacher-students.html" class="nav-item">
+                <a href="teacher-students.html" class="nav-item active">
                     <i class="ph-fill ph-student"></i>
                     Students
                 </a>
@@ -82,24 +76,55 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="content-wrapper" style="max-width: 800px; margin: 0 auto;">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search students...">
+                </div>
+                <div class="top-actions">
+
+                </div>
+            </header>
+
+            <div class="content-wrapper">
                 <div class="page-header">
                     <div class="header-title">
-                        <h1>My Schedules</h1>
-                        <p>Weekly class schedule overview</p>
+                        <h1>Student Management</h1>
+                        <p>Manage your class roster</p>
                     </div>
                 </div>
 
-                <!-- Schedules Container -->
-                <div id="teacherSchedulesContainer">
-                    <!-- Populated by JS -->
-                    <div class="text-center p-4 text-muted">Loading your schedules...</div>
+                <div class="section-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="studentsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FULL NAME</th>
+                                    <th>GRADE</th>
+                                    <th>EMAIL</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentsTableBody">
+                                <!-- Populated by JS -->
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted" style="padding: 2rem;">Loading
+                                        students...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="schedules.js"></script>
+
+
+    <!-- Re-use admin logout script just in case, plus our page logic -->
+    <script src="script.js?v=1.0"></script>
+    <script src="teacher-students.js"></script>
 </body>
 
 </html>

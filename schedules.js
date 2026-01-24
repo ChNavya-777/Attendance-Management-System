@@ -322,73 +322,142 @@ const initAdminSchedules = () => {
 // --- TEACHER PAGE LOGIC ---
 
 const initTeacherSchedules = () => {
-    const container = document.getElementById('teacherSchedulesContainer');
-    if (!container) return; // Not on teacher page
+    // Check for Main Page ID (teacherSchedulesDashboard) or Dedicated Page ID (teacherSchedulesContainer)
+    const dashboardContainer = document.getElementById('teacherSchedulesDashboard');
+    const fullContainer = document.getElementById('teacherSchedulesContainer');
+
+    if (!dashboardContainer && !fullContainer) return; // Not on a relevant page
 
     const schedules = loadSchedules();
-    // Assuming logged in teacher is "Sarah Jenkins" for prototype
     const currentTeacher = "Sarah Jenkins";
-
-    // Filter for current teacher
     const mySchedules = schedules.filter(s => s.teacherName === currentTeacher);
 
-    // Group by Day
-    const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const grouped = {};
+    if (dashboardContainer) {
+        // --- DASHBOARD VIEW (Full Weekly Grid) ---
+        const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const grouped = {};
 
-    daysOrder.forEach(day => {
-        const daySchedules = mySchedules.filter(s => s.day === day);
-        if (daySchedules.length > 0) {
-            // Sort by time
-            daySchedules.sort((a, b) => a.startTime.localeCompare(b.startTime));
-            grouped[day] = daySchedules;
-        }
-    });
-
-    container.innerHTML = '';
-
-    if (Object.keys(grouped).length === 0) {
-        container.innerHTML = '<div class="text-center p-4 text-muted">No schedules found for you.</div>';
-        return;
-    }
-
-    // Render Groups
-    for (const [day, daySchedules] of Object.entries(grouped)) {
-        const groupDiv = document.createElement('div');
-        groupDiv.className = 'schedule-group';
-
-        const header = document.createElement('div');
-        header.className = 'schedule-day-header';
-        header.innerHTML = `<i class="ph-bold ph-calendar-blank"></i> ${day}`;
-        groupDiv.appendChild(header);
-
-        const listDiv = document.createElement('div');
-        listDiv.className = 'schedule-list';
-
-        daySchedules.forEach(sch => {
-            const item = document.createElement('div');
-            item.className = 'schedule-item-card';
-            item.innerHTML = `
-                <div class="time-slot-badge">
-                    ${sch.startTime} - ${sch.endTime}
-                </div>
-                <div class="schedule-details">
-                    <h4>${sch.subject}</h4>
-                    <div class="schedule-meta-text">Grade ${sch.grade} - ${sch.section}</div>
-                </div>
-                <div class="action-arrow">
-                    <i class="ph-bold ph-caret-right"></i>
-                </div>
-            `;
-            // Add click event to simulate navigation to class details
-            item.addEventListener('click', () => {
-                alert(`Navigating to ${sch.subject} for Grade ${sch.grade}-${sch.section}`);
-            });
-            listDiv.appendChild(item);
+        // Group schedules by day
+        daysOrder.forEach(day => {
+            const daySchedules = mySchedules.filter(s => s.day === day);
+            if (daySchedules.length > 0) {
+                daySchedules.sort((a, b) => a.startTime.localeCompare(b.startTime));
+                grouped[day] = daySchedules;
+            }
         });
 
-        groupDiv.appendChild(listDiv);
-        container.appendChild(groupDiv);
+        dashboardContainer.innerHTML = '';
+        if (Object.keys(grouped).length === 0) {
+            dashboardContainer.innerHTML = '<div class="text-muted">No classes scheduled.</div>';
+        } else {
+            // Create a wrapper for the grid layout
+            const gridContainer = document.createElement('div');
+            gridContainer.className = 'schedule-grid-container';
+
+            for (const [day, daySchedules] of Object.entries(grouped)) {
+                const dayGroup = document.createElement('div');
+                dayGroup.className = 'schedule-day-group';
+
+                const header = document.createElement('div');
+                header.className = 'schedule-day-header';
+                header.innerHTML = `<i class="ph-bold ph-calendar-blank"></i> ${day}`;
+                dayGroup.appendChild(header);
+
+                const listGrid = document.createElement('div');
+                listGrid.className = 'schedule-list-grid';
+
+                daySchedules.forEach(sch => {
+                    const item = document.createElement('div');
+                    item.className = 'dashboard-schedule-card';
+                    item.dataset.id = sch.id;
+                    item.innerHTML = `
+                        <div class="dsc-header">
+                            <span class="dsc-time">${sch.startTime} - ${sch.endTime}</span>
+                        </div>
+                        <div class="dsc-subject">${sch.subject}</div>
+                        <div class="dsc-meta">
+                            <span>Grade ${sch.grade} - ${sch.section}</span>
+                        </div>
+                    `;
+                    item.addEventListener('click', () => {
+                        // Scroll to attendance section
+                        const entrySection = document.querySelector('.attendance-section');
+                        if (entrySection) {
+                            entrySection.scrollIntoView({ behavior: 'smooth' });
+                            document.querySelector('.attendance-section h1').textContent = `Grade ${sch.grade} - ${sch.subject}`;
+                        }
+                    });
+                    listGrid.appendChild(item);
+                });
+
+                dayGroup.appendChild(listGrid);
+                gridContainer.appendChild(dayGroup);
+            }
+            dashboardContainer.appendChild(gridContainer);
+        }
+    }
+
+    if (fullContainer) {
+        // --- FULL SETTINGS PAGE VIEW (Legacy/Details Page) ---
+        // If the user still goes to teacher-schedules.html, we keep the existing logic or reuse the new one.
+        // For now, I will keep the existing logic for the standalone page if it exists, 
+        // OR better, since the requirement is to "move" it, maybe the standalone page is redundant?
+        // But the user didn't ask to delete the page, just "add it to dashboard like this".
+        // I will keep the standalone page logic intact for now as a fallback or detailed view.
+
+        // Group by Day
+        const daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const grouped = {};
+
+        daysOrder.forEach(day => {
+            const daySchedules = mySchedules.filter(s => s.day === day);
+            if (daySchedules.length > 0) {
+                daySchedules.sort((a, b) => a.startTime.localeCompare(b.startTime));
+                grouped[day] = daySchedules;
+            }
+        });
+
+        fullContainer.innerHTML = '';
+        if (Object.keys(grouped).length === 0) {
+            fullContainer.innerHTML = '<div class="text-center p-4 text-muted">No schedules found for you.</div>';
+            return;
+        }
+
+        for (const [day, daySchedules] of Object.entries(grouped)) {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'schedule-group';
+            // ... existing logic for standalone page ...
+            const header = document.createElement('div');
+            header.className = 'schedule-day-header';
+            header.innerHTML = `<i class="ph-bold ph-calendar-blank"></i> ${day}`;
+            groupDiv.appendChild(header);
+
+            const listDiv = document.createElement('div');
+            listDiv.className = 'schedule-list';
+
+            daySchedules.forEach(sch => {
+                const item = document.createElement('div');
+                item.className = 'schedule-item-card';
+                item.innerHTML = `
+                    <div class="time-slot-badge">
+                        ${sch.startTime} - ${sch.endTime}
+                    </div>
+                    <div class="schedule-details">
+                        <h4>${sch.subject}</h4>
+                        <div class="schedule-meta-text">Grade ${sch.grade} - ${sch.section}</div>
+                    </div>
+                    <div class="action-arrow">
+                        <i class="ph-bold ph-caret-right"></i>
+                    </div>
+                `;
+                item.addEventListener('click', () => {
+                    alert(`Navigating to ${sch.subject} for Grade ${sch.grade}-${sch.section}`);
+                });
+                listDiv.appendChild(item);
+            });
+            groupDiv.appendChild(listDiv);
+            fullContainer.appendChild(groupDiv);
+        }
     }
 };
 

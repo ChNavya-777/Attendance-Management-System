@@ -752,15 +752,41 @@
     font-size: 1.25rem;
 }
 
-.bg-blue-100 { background-color: #dbeafe; }
-.text-blue-600 { color: #2563eb; }
-.bg-purple-100 { background-color: #f3e8ff; }
-.text-purple-600 { color: #9333ea; }
-.bg-teal-100 { background-color: #ccfbf1; }
-.text-teal-600 { color: #0d9488; }
-.bg-red-100 { background-color: #fee2e2; }
-.text-red-600 { color: #dc2626; }
-.text-green-600 { color: #16a34a; }
+.bg-blue-100 {
+    background-color: #dbeafe;
+}
+
+.text-blue-600 {
+    color: #2563eb;
+}
+
+.bg-purple-100 {
+    background-color: #f3e8ff;
+}
+
+.text-purple-600 {
+    color: #9333ea;
+}
+
+.bg-teal-100 {
+    background-color: #ccfbf1;
+}
+
+.text-teal-600 {
+    color: #0d9488;
+}
+
+.bg-red-100 {
+    background-color: #fee2e2;
+}
+
+.text-red-600 {
+    color: #dc2626;
+}
+
+.text-green-600 {
+    color: #16a34a;
+}
 
 .stat-subtext {
     font-size: 0.8rem;
@@ -772,7 +798,8 @@
 .filters-section {
     padding: 1.25rem;
     display: flex;
-    align-items: flex-end; /* Align bottom to match inputs and button */
+    align-items: flex-end;
+    /* Align bottom to match inputs and button */
     gap: 1.5rem;
     flex-wrap: wrap;
 }
@@ -827,12 +854,14 @@
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 0.9rem;
-    background-color: #f8fafc; /* Slight grey background for inputs as per design */
+    background-color: #f8fafc;
+    /* Slight grey background for inputs as per design */
     color: var(--text-main);
 }
 
 .filter-actions-btn {
-    padding-bottom: 2px; /* Slight alignment fix */
+    padding-bottom: 2px;
+    /* Slight alignment fix */
 }
 
 .btn-primary-icon {
@@ -876,7 +905,9 @@
     border-radius: 3px;
 }
 
-.text-bold { font-weight: 600; }
+.text-bold {
+    font-weight: 600;
+}
 
 /* Responsive Grid 4->2->1 */
 @media (max-width: 1200px) {
@@ -889,11 +920,13 @@
     .stats-grid-4 {
         grid-template-columns: 1fr;
     }
+
     .filters-section {
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
     }
+
     .filter-actions-btn {
         align-self: flex-end;
     }

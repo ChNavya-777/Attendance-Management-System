@@ -4,21 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AttendancePro - My Schedules</title>
+    <title>AttendancePro - Teacher Directory</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="teacher.css">
-    <!-- Reusing admin CSS for specific schedule components to keep it consistent -->
     <link rel="stylesheet" href="admin.css">
-    <style>
-        /* Override specific admin styles if they conflict, but mostly reusing card styles */
-        .main-content {
-            background-color: var(--bg-color);
-        }
-    </style>
 </head>
 
 <body>
@@ -48,17 +41,17 @@
                     <i class="ph-fill ph-book-bookmark"></i>
                     Classes
                 </a>
-                <a href="teacher-schedules.html" class="nav-item active">
+                <a href="teacher-schedules.html" class="nav-item">
                     <i class="ph-fill ph-calendar-blank"></i>
                     Schedules
-                </a>
-                <a href="teacher-teachers.html" class="nav-item">
-                    <i class="ph-fill ph-briefcase"></i>
-                    Teachers
                 </a>
                 <a href="teacher-students.html" class="nav-item">
                     <i class="ph-fill ph-student"></i>
                     Students
+                </a>
+                <a href="teacher-teachers.html" class="nav-item active">
+                    <i class="ph-fill ph-briefcase"></i>
+                    Teachers
                 </a>
                 <a href="teacher-settings.html" class="nav-item">
                     <i class="ph-fill ph-gear"></i>
@@ -82,24 +75,53 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="content-wrapper" style="max-width: 800px; margin: 0 auto;">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ph-bold ph-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search teachers...">
+                </div>
+                <div class="top-actions">
+
+                </div>
+            </header>
+
+            <div class="content-wrapper">
                 <div class="page-header">
                     <div class="header-title">
-                        <h1>My Schedules</h1>
-                        <p>Weekly class schedule overview</p>
+                        <h1>Teacher Directory</h1>
+                        <p>Contact information for your colleagues</p>
                     </div>
                 </div>
 
-                <!-- Schedules Container -->
-                <div id="teacherSchedulesContainer">
-                    <!-- Populated by JS -->
-                    <div class="text-center p-4 text-muted">Loading your schedules...</div>
+                <div class="section-card">
+                    <div class="table-responsive">
+                        <table class="data-table" id="teachersTable">
+                            <thead>
+                                <tr>
+                                    <th>NAME</th>
+                                    <th>ID</th>
+                                    <th>DEPARTMENT</th>
+                                    <th>EMAIL</th>
+                                    <th>CONTACT</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="teachersTableBody">
+                                <!-- Populated by JS -->
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted" style="padding: 2rem;">Loading
+                                        teachers...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <script src="schedules.js"></script>
+    <script src="script.js?v=1.0"></script>
+    <script src="teacher-teachers.js"></script>
 </body>
 
 </html>
