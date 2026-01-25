@@ -1,108 +1,82 @@
-/**
- * Teacher Directory Logic (Read-Only)
- */
-
-// Mock Data (Consistent with Admin Teachers)
-const MOCK_TEACHERS = [
-    {
-        id: 'TCH-1001',
-        name: 'Sarah Jenkins',
-        email: 'sarah.jenkins@school.edu',
-        department: 'Mathematics',
-        phone: '(555) 123-4567',
-        avatarBg: '0D9488'
-    },
-    {
-        id: 'TCH-1002',
-        name: 'Michael Ross',
-        email: 'michael.ross@school.edu',
-        department: 'Science',
-        phone: '(555) 234-5678',
-        avatarBg: '4F46E5'
-    },
-    {
-        id: 'TCH-1003',
-        name: 'Emily Blunt',
-        email: 'emily.blunt@school.edu',
-        department: 'English',
-        phone: '(555) 345-6789',
-        avatarBg: 'DB2777'
-    },
-    {
-        id: 'TCH-1004',
-        name: 'David Kim',
-        email: 'david.kim@school.edu',
-        department: 'History',
-        phone: '(555) 456-7890',
-        avatarBg: 'EA580C'
-    },
-    {
-        id: 'TCH-1005',
-        name: 'Jessica Lee',
-        email: 'jessica.lee@school.edu',
-        department: 'Art',
-        phone: '(555) 567-8901',
-        avatarBg: '9333EA'
-    }
-];
-
-const renderTeachersTable = (teachers) => {
-    const tableBody = document.getElementById('teachersTableBody');
-    if (!tableBody) return;
-
-    tableBody.innerHTML = '';
-
-    if (teachers.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="6" class="text-center p-4">No teachers found.</td></tr>';
-        return;
-    }
-
-    teachers.forEach(teacher => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>
-                <div class="user-cell">
-                    <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(teacher.name)}&background=${teacher.avatarBg || 'random'}&color=fff" alt="${teacher.name}">
-                    <div>
-                        <div class="font-medium">${teacher.name}</div>
-                    </div>
-                </div>
-            </td>
-            <td class="font-mono">${teacher.id}</td>
-            <td><span class="badge-gray">${teacher.department}</span></td>
-            <td><a href="mailto:${teacher.email}" class="text-primary hover:underline">${teacher.email}</a></td>
-            <td>${teacher.phone}</td>
-            <td>
-                <div class="action-buttons">
-                    <a href="mailto:${teacher.email}" class="icon-btn-sm" title="Send Email">
-                        <i class="ph-fill ph-envelope-simple"></i>
-                    </a>
-                </div>
-            </td>
-        `;
-
-        tableBody.appendChild(tr);
-    });
-};
-
-/* --- Search Functionality --- */
-const setupSearch = (teachers) => {
-    const searchInput = document.getElementById('searchInput');
-    if (!searchInput) return;
-
-    searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        const filtered = teachers.filter(t =>
-            t.name.toLowerCase().includes(term) ||
-            t.email.toLowerCase().includes(term) ||
-            t.department.toLowerCase().includes(term)
-        );
-        renderTeachersTable(filtered);
-    });
-};
-
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    renderTeachersTable(MOCK_TEACHERS);
-    setupSearch(MOCK_TEACHERS);
+    // === DOM Elements ===
+    const tableBody = document.getElementById('teachersTableBody');
+    const searchInput = document.getElementById('searchInput');
+
+    // === State Management ===
+    // Use 'teachers_data' from localStorage (shared with Admin)
+    let teachers = JSON.parse(localStorage.getItem('teachers_data')) || [
+        { id: 'EMP-101', name: 'Sarah Jenkins', subject: 'Mathematics', email: 'sarah.j@school.edu', status: 'Active' },
+        { id: 'EMP-102', name: 'Michael Ross', subject: 'Physics', email: 'michael.r@school.edu', status: 'Active' },
+        { id: 'EMP-103', name: 'Emily Blunt', subject: 'English Literature', email: 'emily.b@school.edu', status: 'On Leave' },
+        { id: 'EMP-104', name: 'David Kim', subject: 'History', email: 'david.k@school.edu', status: 'Active' },
+        { id: 'EMP-105', name: 'Rachel Green', subject: 'Biology', email: 'rachel.g@school.edu', status: 'Active' }
+    ];
+
+    // === Render ===
+    const renderTeachers = (filterText = '') => {
+        tableBody.innerHTML = '';
+
+        const filtered = teachers.filter(t =>
+            t.name.toLowerCase().includes(filterText.toLowerCase()) ||
+            t.id.toLowerCase().includes(filterText.toLowerCase()) ||
+            t.subject.toLowerCase().includes(filterText.toLowerCase()) ||
+            t.email.toLowerCase().includes(filterText.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted" style="padding: 2rem;">No teachers found.</td></tr>`;
+            return;
+        }
+
+        filtered.forEach(teacher => {
+            const tr = document.createElement('tr');
+
+            // Status Badge Logic
+            let statusClass = 'text-teal-600 bg-teal-50';
+            let statusDot = 'online';
+
+            if (teacher.status === 'Inactive') {
+                statusClass = 'text-red-500 bg-red-50';
+                statusDot = 'offline';
+            } else if (teacher.status === 'On Leave') {
+                statusClass = 'text-yellow-600 bg-yellow-50';
+                statusDot = 'away';
+            }
+
+            const dotStyle = teacher.status === 'On Leave' ? 'background-color: #fbbf24;' : '';
+
+            // Read-only view (no actions column)
+            tr.innerHTML = `
+                <td class="font-mono text-sm">${teacher.id}</td>
+                <td>
+                    <div class="user-cell">
+                        <div class="avatar-sm text-avatar bg-indigo-100 text-indigo-600">${getInitials(teacher.name)}</div>
+                        <span class="font-medium">${teacher.name}</span>
+                    </div>
+                </td>
+                <td><span class="badge-gray">${teacher.subject}</span></td>
+                <td class="text-muted text-sm">${teacher.email}</td>
+                <td>
+                    <span class="badge ${statusClass}">
+                        <span class="status-dot ${statusDot}" style="${dotStyle}"></span> ${teacher.status}
+                    </span>
+                </td>
+            `;
+            tableBody.appendChild(tr);
+        });
+    };
+
+    // === Utilities ===
+    const getInitials = (name) => {
+        return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+    };
+
+    // === Event Listeners ===
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => renderTeachers(e.target.value));
+    }
+
+    // Initial Render
+    renderTeachers();
 });
